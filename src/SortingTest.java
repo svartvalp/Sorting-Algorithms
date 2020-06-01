@@ -32,6 +32,9 @@ class SortingTest {
     public void quickSort() {assertSorting(new QuickSort());}
 
     @Test
+    public void heapSort() {assertSorting(new HeapSort());}
+
+    @Test
     public void countingSort() {
         var notSorted = new char[]{'b', 'b', 'a', 'c', 'd', 'a', 'b'};
         var sorted = new char[]{'a', 'a', 'b', 'b', 'b', 'c', 'd'};
@@ -45,8 +48,8 @@ class SortingTest {
     }
 
     private void assertSorting(SortingAlgorithm sortingAlgorithm) {
-        int[] notSorted = {3, 1, 4, 5, 2};
-        int[] sorted = {1, 2, 3, 4, 5};
+        int[] notSorted = {3, 1, 4, 5, 2, 3, 4, 6, 1, 10};
+        int[] sorted = {1, 1, 2, 3, 3, 4, 4, 5, 6, 10};
         sortingAlgorithm.sort(notSorted, 0, notSorted.length - 1);
         assertArrayEquals(sorted, notSorted);
     }
